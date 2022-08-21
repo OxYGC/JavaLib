@@ -86,7 +86,6 @@ public class ThreadOfSleep {
             for (int i = 1; i <= 10; i++) {
                 threadOfSleep.TdSleep();
             }
-//            threadOfSleep.TdSleep();
         }
     }
 
