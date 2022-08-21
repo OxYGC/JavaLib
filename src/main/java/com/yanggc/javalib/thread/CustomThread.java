@@ -16,7 +16,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 每个线程添加一个标志位，是该标志位则执行操作，并且修改为下一个标志位，通知下一个标志位的线程
  * 创建一个可重入锁private Lock lock = new ReentrantLock();
  * 分别创建三个开锁通知private Condition c1 = lock.newCondition();
- *
+ * 通过标志位Flag 和Condition 的wait 当前线程, sign(钥匙) 唤醒下一个线程 进行交替打印
  * @Author: YangGC
  * DateTime: 08-21
  */
