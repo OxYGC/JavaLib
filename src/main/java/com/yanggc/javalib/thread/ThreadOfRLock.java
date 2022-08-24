@@ -79,6 +79,4 @@ public class ThreadOfRLock {
         new ThreadC().start();
     }
 
-
-
 }

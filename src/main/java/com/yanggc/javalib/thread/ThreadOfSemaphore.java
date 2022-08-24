@@ -5,12 +5,12 @@ import java.util.concurrent.Semaphore;
 /**
  * 信号量方式
  * Description:
- * 定义的全局变量，使用static
- * 通过static Semaphore A = new Semaphore(1);，代表信号量为1
- * <p>
- * 具体其代码块为：
- * semaphore.acquire(); 获取信号量
- * semaphore.release();释放信号量
+定义的全局变量，使用static
+通过static Semaphore A = new Semaphore(1);，代表信号量为1
+<p>
+具体其代码块为：
+semaphore.acquire(); 获取信号量
+semaphore.release();释放信号量
  *
  * 循环打印AA BB CC 三次
  *
@@ -77,13 +77,5 @@ public class ThreadOfSemaphore {
         new ThreadB().start();
         new ThreadC().start();
     }
-
-//    static class ThreadOfSemaphoreTest {
-//        public static void main(String[] args) {
-//            ThreadOfSemaphore threadOfSemaphore = new ThreadOfSemaphore();
-//
-//        }
-//    }
-
 
 }

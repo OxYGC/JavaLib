@@ -10,13 +10,11 @@ import java.util.concurrent.locks.ReentrantLock;
  * Description:
  * 启动三个线程，按照如下要求：
  * AA打印5此，BB打印10次，CC打印15次，一共进行10轮
- * <p>
- *
- *
  * 每个线程添加一个标志位，是该标志位则执行操作，并且修改为下一个标志位，通知下一个标志位的线程
  * 创建一个可重入锁private Lock lock = new ReentrantLock();
  * 分别创建三个开锁通知private Condition c1 = lock.newCondition();
  * 通过标志位Flag 和Condition 的wait 当前线程, sign(钥匙) 唤醒下一个线程 进行交替打印
+ *
  * @Author: YangGC
  * DateTime: 08-21
  */
@@ -101,47 +99,43 @@ public class CustomThread {
         }
     }
 
-public static class CustomThreadTest {
+    public static class CustomThreadTest {
 
-    public static void main(String[] args) {
-        CustomThread customThread = new CustomThread();
+        public static void main(String[] args) {
+            CustomThread customThread = new CustomThread();
 
-        new Thread(()->{
-            for (int i = 1; i <= 10; i++) {
-                try {
-                    customThread.print5Count(i);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+            new Thread(() -> {
+                for (int i = 1; i <= 10; i++) {
+                    try {
+                        customThread.print5Count(i);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        },"AA").start();
+            }, "AA").start();
 
-        new Thread(()->{
-            for (int i = 1; i <= 10; i++) {
-                try {
-                    customThread.print10Count(i);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+            new Thread(() -> {
+                for (int i = 1; i <= 10; i++) {
+                    try {
+                        customThread.print10Count(i);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        },"BB").start();
+            }, "BB").start();
 
 
-        new Thread(()->{
-            for (int i = 1; i <= 10; i++) {
-                try {
-                    customThread.print15Count(i);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+            new Thread(() -> {
+                for (int i = 1; i <= 10; i++) {
+                    try {
+                        customThread.print15Count(i);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        },"CC").start();
-
-
-
+            }, "CC").start();
+        }
     }
-
-}
 
 
 }
