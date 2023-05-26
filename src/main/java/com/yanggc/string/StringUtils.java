@@ -1,4 +1,4 @@
-package com.yanggc.javalib;
+package com.yanggc.string;
 
 
 import java.util.Objects;
